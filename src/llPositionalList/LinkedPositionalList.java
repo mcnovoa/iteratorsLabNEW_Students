@@ -67,6 +67,11 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 
 	private DNode<E> validate(Position<E> p) throws IllegalArgumentException { 
 		try { 
+			int sum = 0;
+			for (int i = 0; i < this.size; i++) {
+				if(this.iterator().next().equals(p))
+					sum++;
+			}
 			DNode<E> dp = (DNode<E>) p; 
 			if (dp.getPrev() == null || dp.getNext() == null) 
 				throw new IllegalArgumentException("Invalid internal node."); 
